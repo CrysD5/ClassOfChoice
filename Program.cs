@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Choose_Your_Class
 {
-    class Program
+    class Program : Books
     {
 
         public static void Main(string[] args)
@@ -21,14 +23,16 @@ namespace Choose_Your_Class
                 Console.WriteLine("2. Add a book to future reading.");
                 Console.WriteLine("3. Add a book to favorites.");
                 Console.WriteLine("4. Move a book to finished pile.");
-                Console.WriteLine("Q to exit");
+                Console.WriteLine("5. to exit");
 
-                string userInput = Console.ReadLine().ToLower();
+                string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
                     case "1":
-                        //Add book to read
+                        //Add book here
+                        AddBook();
+                        Console.WriteLine();
                         break;
                     case "2":
                         //Add to future reads
@@ -39,7 +43,7 @@ namespace Choose_Your_Class
                     case "4":
                         //Move book to finished stack
                         break;
-                    case "q":
+                    case "5":
                         keepReading = false;
                         break;
 
@@ -49,12 +53,24 @@ namespace Choose_Your_Class
 
                         break;
                 }
-
+               
             }
+
+
+            
         }
-        /*static void Main(string[] args)
-          {
-            Console.WriteLine("Welcome to your library!");
-          }*/
+
+
+        public static void AddBook()
+        {
+            Console.WriteLine("Please enter the name of your book");
+            
+            string book = Console.ReadLine();
+        }
+       
     }
 }
+/*static void Main(string[] args)
+           Console.WriteLine("Welcome to your library!");
+         {
+         }*/
