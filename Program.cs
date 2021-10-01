@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TextToAsciiArt;
+
 
 namespace Choose_Your_Class
 {
@@ -11,12 +13,25 @@ namespace Choose_Your_Class
         
         public static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            IArtWriter writer = new ArtWriter();
+            
+            var settings = new ArtSetting
+            {
+                ConsoleSpeed = 100,
+                //IsBreakSpace = true,
+                Text = "|",
+                //BgText = "_"
+            };
 
-            Console.WriteLine("Welcome to your bookshelf!");
-            //System.Threading.Thread.Sleep(250);
-            Console.WriteLine("What would you like to do today?");
-
-            //System.Threading.Thread.Sleep(250);
+            writer.WriteConsole("The Library", settings);
+         
+            System.Threading.Thread.Sleep(250);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n\nWelcome to your bookshelf!");
+            Console.WriteLine("What would you like to do today?\n\n");
+            
+            System.Threading.Thread.Sleep(250);
 
             bool keepReading = true;
 
@@ -47,19 +62,24 @@ namespace Choose_Your_Class
                         //Console.WriteLine();
                         break;
                     case "2":
-                        Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++\n\n");
+                        //writer.WriteConsole("Your Bookshelf", null);
+                       
                         Bookshelf.ListBooks();                        
                         break;
                     case "3":
-                        //Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Favorite Books +++++++++++++++++++++++++++++++++++\n\n");
                         Bookshelf.ListFavs();
                         break;
                     case "4":
-                        //Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Favorite Authors +++++++++++++++++++++++++++++++++++\n\n");
                         Bookshelf.ListFavAuthors();
                         break;
                     case "5":
-                        //Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Reading List +++++++++++++++++++++++++++++++++++\n\n");
+                        //var data = writer.WriteString("Your Reading List");
+                        //Console.WriteLine(data);
+                        
                         Bookshelf.Reading();
                         break;
                     case "6":
@@ -80,7 +100,12 @@ namespace Choose_Your_Class
             }
 
 
+           
+
             
+
+
+
         }
 
 

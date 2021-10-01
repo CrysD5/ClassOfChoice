@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
+
 namespace Choose_Your_Class
 {
     public class Bookshelf 
@@ -28,14 +29,14 @@ namespace Choose_Your_Class
         }
 
         public void ListBooks()
-        {
+        { 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
            
             int index = 1;
 
             foreach (Book myBook in Shelf)
             {
-                System.Threading.Thread.Sleep(250);
+                
                 Console.WriteLine($"\n{index}: Title: {myBook.Name}, Written by {myBook.Author} \n\n");
                 index++;
 
@@ -52,8 +53,7 @@ namespace Choose_Your_Class
             {
                 if(myBook.FavoriteBook == true)
                 {
-                    Console.WriteLine("These are your Favorite Books:\n");
-                    System.Threading.Thread.Sleep(250);
+                    //Console.WriteLine("These are your Favorite Books:\n");
                     Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}\n");
                     index++;
                 }
@@ -78,17 +78,11 @@ namespace Choose_Your_Class
             {
                 if (myBook.FavoriteAuthor == true)
                 {
-                    Console.WriteLine("These are your Favorite authors:\n");
+                    //Console.WriteLine("These are your Favorite authors:\n");
                     Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}\n\n");
                     index++;
                 }
-                //else
-                //{
-                //    Console.WriteLine("Looks like you don't have any favorites yet");
-                //}
-
-
-
+               
             }
         }
 
@@ -106,17 +100,16 @@ namespace Choose_Your_Class
                     Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}");
                         index++;                  
                     
-                }
-                
+                }                
             }
             Console.Write("\n");
         }
-
-            public void AddBook()
+       
+        public void AddBook()
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Please enter the name of your book");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine();            
             Console.Write("\n");
 
             Console.WriteLine("Please enter the author of your book");
@@ -157,6 +150,8 @@ namespace Choose_Your_Class
             Shelf.Remove(selectedBook);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Your book has been removed");
+
+            Console.Write("\n\n\n"); //Just added this after last screen shot so will have space between removing and new menu
         }
 
         /*
