@@ -79,7 +79,7 @@ namespace Choose_Your_Class
                 if (myBook.FavoriteAuthor == true)
                 {
                     //Console.WriteLine("These are your Favorite authors:\n");
-                    Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}\n\n");
+                    Console.WriteLine($"{index}: {myBook.Author}\n\n");
                     index++;
                 }
                
@@ -96,7 +96,7 @@ namespace Choose_Your_Class
             {
                 if  (myBook.CurrentlyReading == true)
                 {
-                    Console.WriteLine("These are the books you're currently reading:\n");
+                    //Console.WriteLine("These are the books you're currently reading:\n");
                     Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}");
                         index++;                  
                     
