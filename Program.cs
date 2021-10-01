@@ -5,50 +5,73 @@ using System.Text;
 
 namespace Choose_Your_Class
 {
-    class Program : Books
+    class Program : Book
     {
-
+        public static Bookshelf Bookshelf = new Bookshelf();
+        
         public static void Main(string[] args)
         {
 
             Console.WriteLine("Welcome to your bookshelf!");
+            //System.Threading.Thread.Sleep(250);
+            Console.WriteLine("What would you like to do today?");
+
+            //System.Threading.Thread.Sleep(250);
 
             bool keepReading = true;
 
             while (keepReading)
             {
-                Console.WriteLine("What would you like to do today?");
+                
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                //Console.WriteLine("What would you like to do today?");
 
-                Console.WriteLine("1. Add new books to read.");
-                Console.WriteLine("2. Add a book to future reading.");
-                Console.WriteLine("3. Add a book to favorites.");
-                Console.WriteLine("4. Move a book to finished pile.");
-                Console.WriteLine("5. to exit");
+
+                Console.WriteLine("1. Add new books to read."); //AddBook
+                Console.WriteLine("2. View your book list.");
+                Console.WriteLine("3. Veiw your favorite books.");
+                Console.WriteLine("4. Veiw your favorite authors.");
+                Console.WriteLine("5. Veiw books currently reading.");
+                Console.WriteLine("6. Remove finished books.");
+                Console.WriteLine("7. to exit");
 
                 string userInput = Console.ReadLine();
+                Console.Clear();
+
 
                 switch (userInput)
                 {
                     case "1":
                         //Add book here
-                        AddBook();
-                        Console.WriteLine();
+                        Bookshelf.AddBook();
+                        //Console.WriteLine();
                         break;
                     case "2":
-                        //Add to future reads
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Bookshelf.ListBooks();                        
                         break;
                     case "3":
-                        //Add to favs
+                        //Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Bookshelf.ListFavs();
                         break;
                     case "4":
-                        //Move book to finished stack
+                        //Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Bookshelf.ListFavAuthors();
                         break;
                     case "5":
+                        //Console.WriteLine("+++++++++++++++++++++++++++++++++++ Your Bookshelf +++++++++++++++++++++++++++++++++++");
+                        Bookshelf.Reading();
+                        break;
+                    case "6":
+                        Bookshelf.MarkRead();                        
+                        break;
+                    case "7":
                         keepReading = false;
                         break;
 
 
                     default:
+                        
 
 
                         break;
@@ -61,12 +84,7 @@ namespace Choose_Your_Class
         }
 
 
-        public static void AddBook()
-        {
-            Console.WriteLine("Please enter the name of your book");
-            
-            string book = Console.ReadLine();
-        }
+       
        
     }
 }
