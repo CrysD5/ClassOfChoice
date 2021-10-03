@@ -53,33 +53,28 @@ namespace Choose_Your_Class
             {
                 if(myBook.FavoriteBook == true)
                 {
-                    //Console.WriteLine("These are your Favorite Books:\n");
                     Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}\n");
                     index++;
                 }
-                //else if(myBook.FavoriteBook == true)
-                //{
-                //    Console.WriteLine("Looks like you don't have any favorites yet");
-                //System.Threading.Thread.Sleep(250);
-                // }
-
-
+                
             }
         }
 
 
         public void ListFavAuthors()
-        {
+        {//how to make author print once even if multiple books added
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             
             int index = 1;
+            List<string> printedAuthors = new List<string>();
 
             foreach (Book myBook in Shelf)
             {
-                if (myBook.FavoriteAuthor == true)
-                {
-                    //Console.WriteLine("These are your Favorite authors:\n");
-                    Console.WriteLine($"{index}: {myBook.Author}\n\n");
+                if (myBook.FavoriteAuthor == true && !printedAuthors.Contains(myBook.Author))
+                {                    
+                    Console.WriteLine($"{index}: {myBook.Author}\n");
+                    printedAuthors.Add(myBook.Author);
+
                     index++;
                 }
                
@@ -96,8 +91,7 @@ namespace Choose_Your_Class
             {
                 if  (myBook.CurrentlyReading == true)
                 {
-                    //Console.WriteLine("These are the books you're currently reading:\n");
-                    Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}");
+                    Console.WriteLine($"{index}: Title: {myBook.Name}, Written by {myBook.Author}\n");
                         index++;                  
                     
                 }                
@@ -150,8 +144,7 @@ namespace Choose_Your_Class
             Shelf.Remove(selectedBook);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Your book has been removed");
-
-            Console.Write("\n\n\n"); //Just added this after last screen shot so will have space between removing and new menu
+            Console.Write("\n\n"); 
         }
 
         /*
@@ -178,21 +171,8 @@ namespace Choose_Your_Class
                     break;
             }
         }
-
-
-        string str = "false";
-      bool res = bool.Parse(str);
-      Console.WriteLine(res);
         */
-
-
-
     }
-
-
-
-
-
 
 
 }
